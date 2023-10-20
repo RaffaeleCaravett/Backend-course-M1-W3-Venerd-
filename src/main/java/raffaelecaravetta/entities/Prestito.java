@@ -89,5 +89,14 @@ public Prestito(){}
     public void setRestituzioneEffettiva(Date restituzioneEffettiva) {
         this.restituzioneEffettiva = restituzioneEffettiva;
     }
+
+    @Override
+    public String toString() {
+        return "Prestito{" +
+            "id=" + id +
+            ", dataRestituzionePrevista=" + dataRestituzionePrevista +
+            ", restituzioneEffettiva=" + restituzioneEffettiva +
+            '}';
+    }
 }
 

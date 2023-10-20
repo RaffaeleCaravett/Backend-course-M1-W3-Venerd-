@@ -113,9 +113,5 @@ public class CatalogoDao {
 
     }
 
-    public List<Catalogo> filterBlogsByTitle(String title) {
-        TypedQuery<Catalogo> getBlogs = em.createNamedQuery("findByPartialName", Catalogo.class);
-        getBlogs.setParameter("title", title);
-        return getBlogs.getResultList();
-    }
+
 }

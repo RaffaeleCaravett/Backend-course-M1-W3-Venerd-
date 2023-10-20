@@ -32,8 +32,8 @@ public class Application {
         periodicitàList.add(Periodicità.SETTIMANALE);
         periodicitàList.add(Periodicità.SETTIMANALE);
         periodicitàList.add(Periodicità.MENSILE);
-
-       /* for (int i = 0; i <= 10; i++) {
+/*
+        for (int i = 0; i <= 10; i++) {
             int currentYear = Year.now().getValue();
             Random random = new Random();
             int maxYear = 1990;
@@ -56,12 +56,13 @@ public class Application {
             utenteDao.save(utente);
             Set<Catalogo> catalogoSet = new HashSet<>();
             Prestito prestito = new Prestito(utente, randomPrestitoDate, newDate);
+
             if (i % 2 == 0) {
                 Libro libro = new Libro("Libro" + i, randomYear, randomPage, "Autore" + i, genereList.get(randomListIndex));
                 catalogoDao.save(libro);
 
                 if (i % 4 == 0 && i != 0) {
-
+                    prestito.setRestituzioneEffettiva(null);
                     prestitoDao.save(prestito);
                     catalogoSet.add(libro);
                   //  if (i == 8) {
@@ -78,6 +79,7 @@ public class Application {
 
                 if (i % 3 == 0 && i != 0) {
                     catalogoSet.add(rivista);
+                    prestito.setRestituzioneEffettiva(null);
                     prestitoDao.save(prestito);
                   // if (i == 6) {
                     //    Libro libro = new Libro("Libro" + i, randomYear, randomPage + 10, "Autore" + i, genereList.get(randomListIndex));
@@ -90,14 +92,15 @@ public class Application {
 
 
             }
-        } */
-
+        }
+*/
         catalogoDao.findByIsbnAndDelete(14);
         System.out.println(catalogoDao.findById(16));
         catalogoDao.findByAnnoPubblicazione(1975).forEach(System.out::println);
         catalogoDao.findByAutore("Autore0").forEach(System.out::println);
         catalogoDao.findByTitle("1").forEach(System.out::println);
         catalogoDao.findByTesseraUtente(100).forEach(System.out::println);
+        prestitoDao.findPrestitiScaduti().forEach(System.out::println);
         em.close();
         emf.close();
     }
