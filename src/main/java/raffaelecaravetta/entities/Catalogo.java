@@ -26,8 +26,8 @@ public abstract class Catalogo {
 
     public Catalogo(){}
 
-    public Catalogo(long codiceISBN, String titolo, int annoPubblicazione, int numeroPagine) {
-        this.codiceISBN = codiceISBN;
+    public Catalogo( String titolo, int annoPubblicazione, int numeroPagine) {
+
         Titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
@@ -37,9 +37,7 @@ public abstract class Catalogo {
         return codiceISBN;
     }
 
-    public void setCodiceISBN(long codiceISBN) {
-        this.codiceISBN = codiceISBN;
-    }
+
 
     public String getTitolo() {
         return Titolo;
@@ -63,5 +61,17 @@ public abstract class Catalogo {
 
     public void setNumeroPagine(int numeroPagine) {
         this.numeroPagine = numeroPagine;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Catalogo{" +
+            "codiceISBN=" + codiceISBN +
+            ", Titolo='" + Titolo + '\'' +
+            ", annoPubblicazione=" + annoPubblicazione +
+            ", numeroPagine=" + numeroPagine +
+            ", prestito=" + prestito +
+            '}';
     }
 }

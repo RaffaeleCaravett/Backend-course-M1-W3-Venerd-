@@ -15,8 +15,8 @@ public class Libro extends Catalogo{
     public Libro() {
     }
 
-    public Libro(long codiceISBN, String titolo, int annoPubblicazione, int numeroPagine, String autore, Genere genere) {
-        super(codiceISBN, titolo, annoPubblicazione, numeroPagine);
+    public Libro( String titolo, int annoPubblicazione, int numeroPagine, String autore, Genere genere) {
+        super( titolo, annoPubblicazione, numeroPagine);
         this.autore = autore;
         this.genere = genere;
     }

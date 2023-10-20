@@ -16,6 +16,7 @@ public class Utente {
     @Column(name = "data_di_nascita")
     private Date dataDiNascita;
     @Id
+    @GeneratedValue
     @Column(name = "numero_di_tessera")
     private long numeroDiTessera;
     @OneToMany(mappedBy = "utente")
@@ -24,12 +25,12 @@ public class Utente {
 
     public Utente(){}
 
-    public Utente(String nome, String cognome, Date dataDiNascita, long numeroDiTessera) {
+    public Utente(String nome, String cognome, Date dataDiNascita) {
         this.nome = nome;
         this.cognome = cognome;
         this.dataDiNascita = dataDiNascita;
-        this.numeroDiTessera = numeroDiTessera;
     }
+
 
     public String getNome() {
         return nome;

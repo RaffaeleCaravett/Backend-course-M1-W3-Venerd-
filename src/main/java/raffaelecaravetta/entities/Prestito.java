@@ -28,13 +28,22 @@ private Date dataInizioPrestito;
 private Date dataRestituzionePrevista;
 private Date restituzioneEffettiva;
 
-    public Prestito(Utente utente, Set<Catalogo> elementoPrestato, Date dataInizioPrestito,  Date restituzioneEffettiva) {
+
+public Prestito(){}
+    public Prestito(Utente utente, Date dataInizioPrestito,  Date restituzioneEffettiva) {
         this.utente = utente;
         this.dataInizioPrestito = dataInizioPrestito;
         LocalDate localDataInizioPrestito = dataInizioPrestito.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         LocalDate localDataRestituzionePrevista = localDataInizioPrestito.plusDays(30);
         this.dataRestituzionePrevista =  Date.from(localDataRestituzionePrevista.atStartOfDay(ZoneId.systemDefault()).toInstant());
         this.restituzioneEffettiva = restituzioneEffettiva;
+    }
+    public Prestito(Utente utente, Date dataInizioPrestito) {
+        this.utente = utente;
+        this.dataInizioPrestito = dataInizioPrestito;
+        LocalDate localDataInizioPrestito = dataInizioPrestito.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate localDataRestituzionePrevista = localDataInizioPrestito.plusDays(30);
+        this.dataRestituzionePrevista =  Date.from(localDataRestituzionePrevista.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 
     public long getId() {
